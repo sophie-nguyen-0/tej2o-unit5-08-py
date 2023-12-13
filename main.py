@@ -13,12 +13,14 @@ distance_to_object = number = 0
 display.show(Image.HEART)
 
 while True:
-    if (button_a.is_pressed() === true):
+    if button_a.is_pressed() == true:
         display.clear
         while True:
             # Distance from sonar
 
-            distance_to_object = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS)
+            distance_to_object = sonar.ping(
+                DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS
+            )
 
             if distance_to_object < 10:
                 robotbit.stp_car_move(-10, 48)
