@@ -1,24 +1,23 @@
+# TEJ2O ⇢ Unit #5-06
 
-> Open this page at [https://sophie-nguyen-0.github.io/tej2o-unit5-08-py/](https://sophie-nguyen-0.github.io/tej2o-unit5-08-py/)
+[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=12571277)
 
-## Use as Extension
+[![Mr Coxall's Super Linter](https://github.com/sophie-nguyen-0/tej2o-unit5-08-py/workflows/Mr%20Coxall's%20Super%20Linter/badge.svg)](https://github.com/sophie-nguyen-0/tej2o-unit5-08-py/actions)
 
-This repository can be added as an **extension** in MakeCode.
+[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg)](./LICENSE)
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/sophie-nguyen-0/tej2o-unit5-08-py** and import
 
-## Edit this project
+## To lint your python code
 
-To edit this repository in MakeCode.
+Run the following command in the terminal, where your *.py file is located:
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/sophie-nguyen-0/tej2o-unit5-08-py** and click import
+```console
+black --check --diff ./*.py
+```
+## To Build *.hex for Micro:bit using MicroPython
 
-#### Metadata (used for search, rendering)
+Run the following command in the terminal, where your *.py file is located:
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+``` bash
+py2hex ./main.py
+```
