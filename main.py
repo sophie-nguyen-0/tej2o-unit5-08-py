@@ -6,10 +6,11 @@ This module is a Micro:bit MicroPython program
 
 from microbit import *
 
+
 distance_to_object = number = 0
 
 # setup
-display.show(Image.HAPPY)
+display.show(Image.HEART)
 
 while True:
     if (button_a.is_pressed() === true):
