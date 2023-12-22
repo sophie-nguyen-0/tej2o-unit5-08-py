@@ -15,7 +15,7 @@ while True:
     if input.button_is_pressed(Button.A):
         while True:
             # check distance
-            distance_to_object = sonar.ping( 
+            distance_to_object = sonar.ping(
                 DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS
             )
             basic.show_number(distance_to_object)
@@ -31,4 +31,3 @@ while True:
                 basic.pause(500)
                 robotbit.stp_car_turn(90, 42, 125)
                 basic.pause(500)
-            
