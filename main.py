@@ -4,32 +4,33 @@ Created on: dec 2023
 This module is a Micro:bit MicroPython program
 """
 
-from microbit import *
-
-
-distance_to_object = number = 0
+import robotbit
+import sonar
 
 # setup
-display.show(Image.HEART)
+basic.show_icon(IconNames.GHOST)
 
+# loop forever
 while True:
-    if button_a.is_pressed() == true:
-        display.clear
+    if input.button_is_pressed(Button.A):
         while True:
-            # Distance from sonar
-
+            # check distance
             distance_to_object = sonar.ping(
-                DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS
+                DigitalPin.P1,
+                DigitalPin.P2,
+                PingUnit.CENTIMETERS
             )
+            basic.show_number(distance_to_object)
 
-            if distance_to_object < 10:
-                robotbit.stp_car_move(-10, 48)
-                sleep(500)
-                robotbit.stepper_turn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
-                sleep(500)
-                robotbit.stepper_turn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
-                sleep(500)
-                robotbit.stp_car_move(10, 48)
+            # if distance is >= 10 motors move 10 cm forward
+            if distance_to_object >= 10:
+                robotbit.stp_car_move(10, 42)
+                basic.pause(500)
+
+            # if stepper motor is < 10 cm motors move 10 cm backward & turn 90 deegres
             else:
-                # move forward
-                robotbit.stp_car_move(10, 48)
+                robotbit.stp_car_move(-10, 42)
+                basic.pause(500)
+                robotbit.stp_car_turn(90, 42, 125)
+                basic.pause(500)
+                
